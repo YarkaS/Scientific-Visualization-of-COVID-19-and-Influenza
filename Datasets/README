@@ -1,0 +1,30 @@
+#Datasets used for our project
+
+To visualize molecules:
+Files used: All files used on project
+1) Load files in VMD
+2) Click on Graphics -> Reprensentations
+3) Use the following settings:
+    To visualize secondary structures:
+    - Selection: all
+    - Color Method: Secondary
+    - Drawing Method: New Cartoon (or Points)
+    
+    Create a new representation (in addition to the one above) if you want to visualize water molecules:
+    - Selection: water
+    - Color Method: ColorId - 9 (Pink)
+    - Drawing Method: Beads (or Points)
+
+To visualize Ramachandran Plots:
+Files used: 1RUZ.pdb, 1NN2.pdb, 6VXX.pdb
+1) Load files in VMD
+2) Click on Extensions -> Analysis -> Ramachandran Plot
+3) Change the molecule selected by clicking on the box next to "Molecule:" and select the number assigned to the molecule you want
+
+To create RMSD graph:
+Files used: 1RUZ.pdb, 1NN2.pdb, 6VXX.pdb
+1) Load files in VMD
+2) Click on Extensions -> Analysis -> MultiSeq
+3) On the MultiSeq window, filter out any nuclear data for hemagglutin, neuraminidase, and spike protein by highlighting them and clicking the "Delete" button on your keyboard.
+4) Now click on Tools -> Stamp Structural Alignment and click on "OK" on the window popup. This will align the molecules on the MultiSeq window.
+5) Click on Tools -> Plot Data. On the popup window, click on the RMSD radio button, then click "OK". The RMSD plot should appear.
