@@ -1,0 +1,330 @@
+\documentclass[conference]{IEEEtran}
+\IEEEoverridecommandlockouts
+% The preceding line is only needed to identify funding in the first footnote. If that is unneeded, please comment it out.
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\usepackage{subfigure}
+\usepackage{natbib}
+\usepackage{hyperref}
+\hypersetup{
+     colorlinks = true,
+     linkcolor = blue,
+     urlcolor = blue
+     }
+
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+
+\makeatletter
+\newcommand{\newlineauthors}{%
+  \end{@IEEEauthorhalign}\hfill\mbox{}\par
+  \mbox{}\hfill\begin{@IEEEauthorhalign}
+}
+\makeatother
+
+\begin{document}
+
+\title{Molecular Comparison of Influenza A with COVID-19\\
+
+}
+
+\author{\IEEEauthorblockN{Maryam Amjad}
+\IEEEauthorblockA{\textit{dept. Computer Science} \\
+\textit{Hunter College}\\
+New York, USA \\
+maryam.amjad69@myhunter.cuny.edu}
+\and
+\IEEEauthorblockN{Sajarin Dider}
+\IEEEauthorblockA{\textit{dept. Computer Science} \\
+\textit{Hunter College}\\
+New York, USA \\
+sajarin.dider55@myhunter.cuny.edu}
+\newlineauthors
+\IEEEauthorblockN{Ricky Rodriguez}
+\IEEEauthorblockA{\textit{dept. Computer Science} \\
+\textit{Hunter College}\\
+New York, USA \\
+ricky.rodriguez14@myhunter.cuny.edu}
+\and
+\IEEEauthorblockN{Yaroslava Shynkar}
+\IEEEauthorblockA{\textit{dept. Computer Science} \\
+\textit{Hunter College}\\
+New York, USA \\
+yaroslava.shynkar39@myhunter.cuny.edu}
+}
+
+\maketitle
+
+\begin{abstract}
+In this paper we are analyzing the molecular similarities and differences of COVID-19 and Influenza type A. The visualization of both viruses and theoretical background are provided in our research to deepen the understanding of SARS-CoV-2. As the part of our work, we showed the differences between the surface proteins and RNA genomes of both viruses using VMD(Visual Molecular Dynamics) software. Our data analysis showed that alignments of glycoproteins of COVID-19 and Influenza differ, as well the secondary structure of RNA segments located inside Influenza and SARS-CoV-2 molecules.
+\end{abstract}
+
+\begin{IEEEkeywords}
+Coronavirus, SARS-CoV-2, Influenza A, VMD
+\end{IEEEkeywords}
+
+\section{Introduction}
+\subsection{Objectives and Goals}
+The main goal of this research is to show the molecular similarities and differences between COVID-19 and Influenza type A by using visualization software. Since research on COVID-19 is still in development, we aimed at defining the key parts of both viruses to present our work, acknowledging that the SARS-CoV-2 database is yet to be filled with better and more detailed files to perform visualizations.  
+
+\subsection{Data Acquisition}
+
+Several PDB files from the RCSB Protein Data Bank were used for our research. The codes for the PDB files used for the visualization of several components of the influenza A are the following: 3KHW (for the structure of PB2), 4IUJ (for the structure of PA), 21QH (for the structure of NP), 2HN8 (for the structure of PB1(PB1-F2)), 2N74 (for the structure of NS1), 3MD2 (for the structure of M1), 1RUZ (for the structure of hemagglutinin), and 1NN2 (for the structure of neuraminidase). 
+
+There are different sub-types of influenza A, so instead of focusing on a single sub-type, we have used data for several sub-types as not only was it hard to find all components of a single sub-type of influenza, but we believed that it would help introduce readers to the numerous sub-types of the influenza virus. The codes for the PDB files used for the visualization of several components of the coronavirus are the following: 7BRO (for the crystal structure of the main protease), 6YYT (for the structure of the polymerase), 6VW1 (for the structure of the RBD complexed with the ACE2), and 6VXX (for the structure of the spike protein). The PDB files mentioned above were selected as they provided clarity in showing both viruses. 
+
+\section{Related Work}
+\subsection{Justification of Our Research Topic}
+This project is created under the crisis caused by the current COVID-19 pandemic. Many of the symptoms shown from contracting COVID-19 are like those of the flu. Also, about 100 years since the writing of this paper, the world has gone through another pandemic: the 1918 influenza pandemic. Such similarities sparked our interest in researching what more does both viruses share. Thus, our research is dedicated to the visual comparison of the molecular composition of COVID-19 and Influenza A viruses.
+
+\subsection{Survey of Existing Visualization Methods}
+There are only a handful of meaningful ways to visualize biological and more specifically, molecular data. According to a review of practical visualization examples, the main choice is between creating visual visualizations and haptic visualizations \citep{Taylor}. Haptic visualizations are more immersive but also more difficult to produce. Visual visualizations are transformations of the data’s appearance that aid in understanding and analysis. In our case, by changing the graphical representation of the data (color and drawing method), we were able to more easily compare the differences between COVID-19 and Influenza A. According to the many different visual visualization techniques mentioned in the review of practical visualization examples, our method most closely resembles what they call “highlighting critical values” and “combining multiple data sets” \citep{Taylor}. We deemed these visualization techniques to be the best way to showcase our data and our research.  
+
+\subsection{Choice of Visualization Methods and Tools}
+There are multiple visualization tools that could be used to present the molecular structure of viruses. Haichao Miao et al.  at their “Multiscale Molecular Visualization” offer a survey of tools and techniques used to show the molecular dynamics. Their paper focuses on application-domain questions and tasks that shape the choice of visualization tools for work \citep{Haichao}.  One of the leading tools that the authors highlight is VMD (Visual Molecular Dynamics). VMD is a free software tool that offers multiple molecular representations, coloring styles, transparency and materials \citep{Haichao}.  Since VMD is easy to use and has various features for molecular analysis, we believed it was the right tool to use for our research. VMD also supports Nanoscale Molecular Dynamics. Other tools that could be applicable for the molecular visualization are MegaMol, an open-source software for large structures, Caver Analyst, a tool used for the analysis and visualization of protein structures, SAMSON, a platform for computational nanoscience \citep{Haichao}. 
+
+\subsection{Theoretical Framework of Influenza}
+Nicole M. Bouvier and Peter Palese in their article “The biology of influenza viruses” explain that all influenza viruses are characterized by segmented, negative-strand RNA genomes \citep{Bouvier}. The influenza A virus genome consists of eight viral RNA segments: polymerase basic protein 2(PB2), polymerase basic protein 1 (PB1), polymerase acidic protein (PA), hemagglutinin (HA), nucleoprotein (NP), neuraminidase (NA), matrix (M), nonstructural protein NS1. The segments are numbered in the descending order. For example, “segments 1, 3, 4, and 5 encode just one protein per segment: the PB2, PA, HA and NP proteins” \citep{Bouvier}. The polymerase subunit PB1 is encoded on segment 2, segment 6 encodes NA protein, segment 7 the M1 matrix protein, segment 8 encodes single RNA segment NS (that is NS1, NS2) \citep{Bouvier}. 
+
+\subsection{Theoretical Framework of COVID-19}
+Coronaviruses are “large, enveloped positively stranded RNA viruses” that have infected a variety of different “mammalian and avian species” across the world. In the case of the SARS-CoV-2 virus the anatomical molecular structure contains “spike-like glycoproteins” on the surface and non-structural proteins that make up the rest of its genome. These non-structural proteins are responsible for “facilitating viral replication and transcription” and have a large role in the virus’s pathogenesis [4]. The glycoproteins on the surface of the virus, otherwise known as spike proteins, are “clove-shaped” and have a large ectodomain which possess two subunits: S1 and S2. The non-structural proteins such as the main protease or RNA dependent RNA polymerase are responsible for aiding in the infection on host cells after the initial viral infection performed by the spike proteins.  
+
+\section{Scientific Visualization of Influenza}
+Our work is provided in the following way: we start by visualizing several components of the influenza and COVID-19 using VMD. Most of the graphical representations are done using secondary structure as coloring method and NewCartoon as the drawing method. The NewCartoon drawing method provides a simplified representation of protein based on its secondary structure. Table 1 provides the coloring map used in our work. We then present the data analysis done in VMD to illustrate the similarities and differences outlined between the two viruses.
+
+\begin{table}[htbp]
+\caption{Color Map}
+\begin{center}
+\begin{tabular}{ |c|c| } 
+\hline
+\textbf{Color} & \textbf{Meaning}\\ 
+\hline
+Purple & Alpha Helix \\ 
+\hline
+Blue & 3-10 Helix \\ 
+\hline
+Red & $\pi$ - Beta\\ 
+\hline
+Yellow & Extended Beta \\ 
+\hline
+Tan & Bridge Beta \\ 
+\hline
+Cyan & Turn \\ 
+\hline
+White & Coil \\ 
+\hline
+Pink & Water Molecules \\ 
+\hline
+\end{tabular}
+\label{tab1}
+\end{center}
+\end{table}
+
+\subsection{Visualization of Surface Proteins of Influenza }
+
+
+The haemagglutinin (HA) (Fig.\ref{fig:ha_protein}) is mostly responsible for entering the host cell. It is composed of two different chains, identified by the blue and orange portions of the third pic. The blue chain is responsible for searching for specific sugar chains on cellular proteins, preferably the sialic acid (polysaccharide chain) that is attached to surface lipids and proteins of most host cells. The orange chain is responsible for attacking the cellular proteins \citep{Goodsell} \citep{Hagen}. The HA binds into polysaccharide chains, enabling the virus to enter the host cell. There, the virus releases its RNA “to be copied and synthesized into new virus particles” that are unable to exit the infected cells once bound to the cell surfaces \citep{Hagen}.  There are many subtypes of haemagglutinin; 18 of them are known (H1-H18) \citep{CDC}. 
+
+\begin{figure}[htbp]
+    \centering
+    \subfigure[]{\includegraphics[width=0.24\textwidth]{ha_newchar.png}} 
+    \subfigure[]{\includegraphics[width=0.24\textwidth]{ha_chain.png}} 
+\caption{The haemagglutinin of the H1N1 virus that was part of the 1918 Flu pandemic (1RUZ). The left visualization highlights the secondary structure of the protein and water molecules (Refer to Table \ref{tab1} for color map). The right visualization highlights the chains that are responsible for locating (blue) and attacking (orange) the host cell.}
+\label{fig:ha_protein}
+\end{figure}
+
+The neuraminidase (Fig.\ref{fig:na_protein}) is responsible for exiting the host cell. It cleaves sialic acid from the cell surface, which allows the HA to attack the host cell from the inside \citep{Hagen}. Once the HA is done infecting the cell, the NA clips off the end of the ends of the polysaccharide chains so that the virus does not get stuck on the host cell’s surface. \citep{Goodsell} Once the virus is out, the virus and the newly infected host cell goes off to infect neighboring host cells. Inhibitors used as antiviral drugs such as zanamivir (Relenza) and oseltamivir (Tamiflu) help with limiting the function of NA. They help prevent the NA from cutting sialic acid, effectively blocking the virus from entering the host cell \citep{Goodsell}  \citep{Hagen}. There are 11 subtypes known (N1-N11) \citep{CDC}. 
+
+\begin{figure}[htbp]
+    \centerline{\includegraphics[width=0.24\textwidth]{na_newchar.png}}
+\caption{The neuraminidase (NA) of the H2N2 that was part of the 1968 Flu pandemic (1NN2). Refer to Table \ref{tab1} for color map.}
+\label{fig:na_protein}
+\end{figure}
+
+
+\subsection{Visualization of RNA Segments Inside of Influenza A type}
+We had created multiple snapshots of segmented, negative-strand RNA genomes of Influenza type A subtype H1N1 (Fig.\ref{fig:pb2_flu}-\ref{fig:m1_flu}). We had used the samples of Influenza taken from Puerto Rico, California, Alaska, and also the United Kingdom and Mexico.
+
+According to our literature review, Zeinab et al. in “Comparative Review of SARS-CoV-2, SARS-Cov, MERS-CoV, and Influenza” state that three viral polymerase proteins, PB1, PB2, and PA, “form an enzyme complex that plays a role in transcription and replication” \citep{Zeinab}. Besides the visual difference between the three proteins, it is essential to note that for PB2 (Fig.\ref{fig:pb2_flu}) the number of atoms is 3362, bonds is 3188, residues is 640, waters is 234, segments is 1, fragments is 237, protein is 2. The data for PA (Fig.\ref{fig:pa_flu}) is the following: the number of atoms is 3484, bonds is 3301, residues is 663, waters is 255, segments is 1, fragments is 259, protein is 4.
+Meanwhile, for PB1 (Fig.\ref{fig:pb1_flu}) the number of atoms is 720, bonds is 732, residues is 38, waters is 0, segments is 1, fragments is 1, protein is 1.
+Comparing PB1, PA, PB2, we observed that Fig.\ref{fig:pb2_flu} shows that PB2 is the only structure that contains $\pi$-helix, while all three contain plenty of alpha helix (purple color). 
+
+Fig.\ref{fig:np_flu} shows Nucleoprotein (NP) that is responsible for enclosing in a protein shell the virus genome. It provides the RNA with the ability to transcribe, replicate and package. According to Zeinab et al. The NP protein is used as a model to produce additional copies. The data for NP is the following: the number of atoms is 10162, bonds is 10325, residues is 1288, waters is 0, segments is 1, fragments is 14, proteins is 14. From visualization we see that chunks of NP look like PA. 
+
+Lu et al. established that NS1 protein (Fig.\ref{fig:ns1_flu}) prevents antivirus activity from the host \citep{Lu}. In our visualization of NS1 the number of atoms is 2354, bonds is 2368, residues is 146, segments is 1, fragments is 2, protein is 2. 
+The matrix protein M1 (Fig.\ref{fig:m1_flu} forms a layer under the host cell membrane and facilitates the maturity of the virus. It binds both the membrane (of the host) and virus simultaneously. The data for M1 is the following: the number of atoms is 4997, bonds is 4440, residues is 685, waters is 117, fragments is 129, protein is 12. 
+
+
+
+\begin{figure}[htbp]
+    \centerline{\includegraphics[width=0.28\textwidth]{pb2_newchar.png}}
+\caption{The visualization of PB2 on the sample \\ of A/Mexico/InDRE4487/2009(H1N1). }
+\label{fig:pb2_flu}
+\end{figure}
+
+
+\begin{figure}[htbp]
+    \centerline{\includegraphics[width=0.28\textwidth]{pa_newchar.png}}
+\caption{The visualization of PA on the sample \\ of A/Wilson-Smith/1933(H1N1). }
+\label{fig:pa_flu}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centerline{\includegraphics[width=0.28\textwidth]{np_newchar.png}}
+\caption{The visualization of NP on the sample \\ of A/Wilson-Smith/1933(H1N1). }
+\label{fig:np_flu}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centerline{\includegraphics[width=0.28\textwidth]{pb1_f2_newchar.png}}
+\caption{The visualization of PB1-F2 on the sample\\ of A/Puerto Rico/8/1934(H1N1).  }
+\label{fig:pb1_flu}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centerline{\includegraphics[width=0.28\textwidth]{ns1_newchar.png}}
+\caption{The visualization of NS1 on the sample of \\ A/Brevig Mission/1/1918(H1N1).  }
+\label{fig:ns1_flu}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centerline{\includegraphics[width=0.28\textwidth]{m1.png}}
+\caption{The visualization of M1 on the sample of\\ A/California/04/2009 (H1N1).  }
+\label{fig:m1_flu}
+\end{figure}
+
+After creating the snapshots of RNA genomes separately, we had created the visualization of the six mentioned above molecules in one session in VMD. From the Molecule List Browser (Fig.\ref{fig:mol_flu}) it is clear that every molecule has different number of atoms and frames. The visualization of RNA genomes is shown at Fig.\ref{fig:mult_flu}.  M1 is represented with blue color (ColorID=0), NP is cyan (ColorID=10), NS is orange (ColorID = 3), PA is green (ColorID=7), PB1 is red (ColorID = 1), PB2 is pink (ColorID = 9). Display is orthographic, therefore, the scale and parallelism relationship between objects are preserved. Rendering is POV3. Drawing method is newCartoon, coloring method is ColorID, material is opaque. Resolution is 30.
+
+\begin{figure}[htbp]
+    \centerline{\includegraphics[width=0.36\textwidth]{mol_list.png}}
+\caption{The Molecule List Browser. Every molecule has unique ID, Molecule Status Flags: T(top), A(active), D(drawn), F(fixed). Number of atoms, frames is listed.}
+\label{fig:mol_flu}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centerline{\includegraphics[width=0.36\textwidth]{mult_flu.png}}
+\caption{Visualization of multiple molecules of influenza A type H1N1 subtype within one VMD session. }
+\label{fig:mult_flu}
+\end{figure}
+
+
+\section{Scientific Visualization of SARS-CoV-2}
+\subsection{Visualization of Surface Proteins of COVID-19 }
+The glycoprotein of SARS-CoV-2 (Fig.\ref{fig:s_protein}) is simply called Spike Protein (S) and it has two subunits: S1 and S2. The S1 subunit of the virus contains the “receptor-binding domain (RBD)” which is responsible for initial viral infection as the RBD binds to a human enzyme called “angiotensin-converting enzyme 2 (ACE2)” \citep{Mittal}. Overall, the spike RBD permits the binding of the ACE2 receptor in the lungs and different tissues. The spike protein of an “amino acid site (polybasic site)” allows the practical handling of the equivalent by the human enzyme furin (protease) \citep{Mittal}. This cycle permits the “exposure of the fusion groupings” and the combination of the viral and cell layers, an essential entry for the virus to enter the cell.
+
+\begin{figure}[htbp]
+    \centerline{\includegraphics[width=0.36\textwidth]{s_newchar.png}}
+\caption{The spike protein of the SARS-CoV-2 that is part of the current 2019 coronavirus pandemic (6VXX). Refer to Table \ref{tab1} for color map.}
+\label{fig:s_protein}
+\end{figure}
+
+\subsection{Visualization of Non-structured Proteins Inside of COVID-19}
+Other than the surface glycoproteins, an important part of COVID-19 is the viral replication processes that happen when the surface proteins breach host cells. With regards to viral replication, there are two important parts of the RNA genome that our visualizations will be highlighting: the main protease and the RNA-dependent RNA polymerase. Fig.\ref{fig:rna_covid} shows non-structured RNAs of \\ COVID-19.The main protease is an enzyme that performs the cuts of the polyproteins translated from viral RNA to yield functional viral proteins. The RNA-dependent RNA polymerase synthesizes viral RNA from hundreds of thousands of nucleotides. These two functions: viral RNA synthesis and the creation of functional viral proteins are the key to understanding the virus’s pathogenesis.
+
+\begin{figure}[htbp]
+    \centering
+    \subfigure[]{\includegraphics[width=0.36\textwidth]{main_pro.png}} 
+    \subfigure[]{\includegraphics[width=0.36\textwidth]{rna_covid.png}}
+\caption{Visualization of two important parts of the RNA genome for COVID-19.  (a) is a visualization of the main protease, (b) is a visualization of the RNA-dependent RNA polymerase. Both play vital roles in viral replication and pathogenesis. }
+\label{fig:rna_covid}
+\end{figure}
+
+
+
+
+\section{Methodology and Implementation}
+\subsection{Analysis of Glycoproteins}
+\begin{figure}[htbp]
+    \centering
+    \subfigure[]{\includegraphics[width=0.28\textwidth]{ha_points.png}} 
+    \subfigure[]{\includegraphics[width=0.28\textwidth]{na_points.png}} 
+    \subfigure[]{\includegraphics[width=0.28\textwidth]{s_points.png}} 
+\caption{Visualization highlighting the secondary structures and water molecules of 1RUZ HA (a), 1NN2 NA (b), and 6VXX S (c) proteins. Refer to Table \ref{tab1} for color map.}
+\label{fig:glyco_points}
+\end{figure}
+
+After analyzing the secondary structure visualizations (Fig.\ref{fig:glyco_points}), we have noticed that the S-protein contains almost all the secondary protein structures of the HA and NA proteins: alpha helix, 3-10 helix, extended beta, bridge beta, turn, and coil. While the HA and NA proteins both contain a $\pi$-helix, the S-protein lacks it. We can also note that the S-protein lacks water molecules surrounding the protein.  
+
+\begin{figure}
+    \centering
+    \subfigure[]{\includegraphics[width=0.24\textwidth]{ha_ram_plot.png}} 
+    \subfigure[]{\includegraphics[width=0.24\textwidth]{na_ram_plot.png}} 
+    \subfigure[]{\includegraphics[width=0.24\textwidth]{s_ram_plot.png}}
+    \subfigure[]{\includegraphics[width=0.24\textwidth]{ha_aromatic.png}}
+    \subfigure[]{\includegraphics[width=0.24\textwidth]{na_aromatic.png}}
+    \subfigure[]{\includegraphics[width=0.24\textwidth]{s_aromatic.png}}
+    \caption{The Ramachandran Plots for 1RUZ HA (a), 1NN2 NA (b), and 6VXX S (c) proteins illustrating the position of all protein residues and stability of protein structures and the Ramachandran Plots for 1RUZ HA (d), 1NN2 NA (e), and 6VXX S (f) aromatic proteins. }
+    \label{fig:glycoplot}
+\end{figure}
+
+The Ramachandran plots for HA, NA, and S proteins (Fig.\ref{fig:glycoplot}) are also quite similar. On all three surface proteins, there is a large concentration of protein residues on three major areas: on the beta sheet, and on the right and left-handed alpha helix. Minor differences can be noted when focusing on aromatic protein residues. S has more aromatic protein residues concentrated on the beta sheet and left-handed alpha helix region than NA and HA. 
+
+\begin{figure}[htbp]
+    \centerline{\includegraphics[width=0.50\textwidth]{rmsd_glyco.png}}
+\caption{The RMSD values of the chains of HA (1RUZ), NA (1NN2), and S (6VXX) proteins.}
+\label{fig:rmsd_glyco}
+\end{figure}
+
+The only instance where our data had to be filtered was during the creation of the RMSD graph. In order to align the hemagglutinin, neuraminidase, and spike protein, the nucleic data for these structures was filtered out, since all the mentioned structures do not have a nucleus.
+
+
+By calculating the root-mean-square deviation of atomic position (RMSD) (Fig.\ref{fig:rmsd_glyco}), we can measure the average distance between aligned residues. Close alignment is represented by low RMSD values while poor alignment is represented by large RMSD values. An empty RMSD value represents that the residues cannot be aligned due to them not being closely related. In the above line chart, we can see that while HA and NA chain RMSD values are near each other, the RMSD values for S chains are high. The data suggests that although there is some similarity between the glycoproteins of the flu and of COVID-19 (as shown through the visible lines), they can be poorly aligned molecularly (as shown through the gap between the RMSD values for the glycoproteins of both viruses).
+
+\subsection{Analysis of RNA segments located inside of Influenza type A and COVID-19}
+After evaluating the segments within RNA genome of Influenza and COVID-19 we observed that  RNA polymerase of SARS-CoV-2 are similar to PB2,PA and NP. RNA polymerase of COVID-19 is similar to PA and NP since all three molecules have plenty of alpha helix, extended beta, 3-10 helix,coil. However, in comparison to both RNAs of COVID-19, PA of Influenza has also $\pi$-beta.   
+There are also RNA strands of Influenza which completely different from COVID-19. For example, PB1 of influenza contains mainly alpha helix and coil, NS1 of Influenza has alpha helix, 3-10 helix, turn and no extended beta. M1 of Influenza has plenty of alpha helix, a little bit of turn and coil.
+Another observation is that main protease of COVID-19 has plenty of turn, and RNA polymerase contains plenty of coil.
+
+The Ramachandran plots(Fig.\ref{fig:flu_rna_plot}-\ref{fig:covid_rna_plot}) confirmed our obeservations. The plots of main polymerase and protease of COVID-19 look completely different from the plots of M1, NS, PB1(RNA strands of Influenza).
+We established that analyzed COVID-19 molecules look similar to NP, PA, PB2 RNA segments of Influenza. RNA polymerease is similar to NP: both molecules have plenty of residues at beta sheet. However, NP has more residues at right-handed alpha-helix than polymerase of COVID-19. Main protease of COVID-19 is similar to PA and PB2 because of the concentration of residues at beta sheet and right-handed alpha-helix of all three molecules. In addition, the left-handed alpha sheet of main protease resembles the same sheet of PB2 rather well.
+
+\begin{figure}
+    \centering
+    \subfigure[]{\includegraphics[width=0.24\textwidth]{m1_rama.png}} 
+    \subfigure[]{\includegraphics[width=0.24\textwidth]{np_rama.png}} 
+    \subfigure[]{\includegraphics[width=0.24\textwidth]{ns_rama.png}}
+    \subfigure[]{\includegraphics[width=0.24\textwidth]{pa_rama.png}}
+    \subfigure[]{\includegraphics[width=0.24\textwidth]{pb1_rama.png}}
+    \subfigure[]{\includegraphics[width=0.24\textwidth]{pb2_rama.png}}
+    \caption{The Ramachandran Plots for the following viral RNAs of Influenza: (a)M1, (b)NP, (c)NS, (d)PA, (e)PB1, (f)PB2 }
+    \label{fig:flu_rna_plot}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \subfigure[]{\includegraphics[width=0.24\textwidth]{7bro_rama.png}}
+    \subfigure[]{\includegraphics[width=0.24\textwidth]{6yyt_rama.png}}
+    \caption{The Ramachandran Plots for: (a)Main Protease of COVID-19, (b)RNA-Dependent Polymerase }
+    \label{fig:covid_rna_plot}
+\end{figure}
+
+
+
+\section{Discussions}
+
+The lack of pi-helices on S-proteins (as shown in Fig.\ref{fig:glyco_points}) might be something to note. Pi-helices are known to have many free carbonyls (C=O) and amino (N-N) groups. A significant number of C–HO along with N–HO H-bonds “have been reported to contribute to the overall stability by shielding the backbone carbonyl oxygen of a residue from the solvent” \citep{Kumar}. Since only “a small proportion (~ 10\%) of pi-helices have been identified as a part of active sites or playing any known functional role in protein chains”, there is a high chance that the lack of pi-helices on S-proteins might not mean that it has lost a certain functionality that the influenza. \citep{Kumar} Additional tests such as introducing inhibitors to the viruses would be needed to help identify the specific role of the pi-helices in the surface proteins of the flu and corona viruses. 
+
+Water molecules play a role in the structure, stability, dynamics, and function of proteins. It can directly interact with the backbone and the sidechains of the protein \citep{Levy}. That can explain why most of the residues in HA and NA are within the acceptable locations in the Ramachandran plot (as shown in Fig.\ref{fig:glycoplot}) (that is not to say that the lack of water molecules surrounding the S-protein makes it the structure unstable. The Ramachandran plot for the S protein  appears to be very stable with some outliers.) Water molecules have also helped scientist come up with protein dockings and good drug design strategies that result with higher specificity and affinity \citep{Levy}. This can explain how flu pandemics have not lasted for a long period of time in recent times. 
+
+Aromatic proteins are residues that have an aromatic ring. The following are classified as aromatic according to VMD: histidine, phenylalanine, tryptophan, and tyrosine. The concentrated area of aromatic proteins in the S-protein (as shown in Fig.\ref{fig:glycoplot}) can help with designing drugs, as there have been studies that show that there has been concentrated areas of aromatic protein residues in the transmembrane protein of HIV (HIV-1 TM) and the surface protein of Ebola (EBOV) in “identical” locations as those in the coronavirus S protein \citep{Saintz}. 
+
+Although the glycoproteins of the flu and the coronavirus have a somewhat similar structure, they have almost completely different alignments as shown through their RMSD values (Fig.\ref{fig:rmsd_glyco}). The information obtained by comparing a protein’s alignment with another “can be used to capture various facts about the sequences aligned, such as common evolutionary descent or common structural function” \citep{Altschul}. The information provided by the RMSD values suggest that the surface proteins of the flu and COVID 19 do not have a close ancestor, although a late ancestor can be possible.  
+
+While trying to use the MultiSeq feature to analyze all the RNA sequences of Influenza and Covid-19 together we faced the error due to the fact that molecules have different number of atoms and, therefore, the alignment was impossible. The visualizations done in this research confirm that negatively-strand segmented RNA genome of Influenza differs from positevely strand non-segmented RNA genome of Covid-19 by both the molecular structure and the content.
+
+\section{Conclusion}
+Influenza A and SARS-CoV-2 are enveloped viruses that although  can cause similar symptoms on humans, their structure and molecular composition are different enough to distinguish between the two. Some of the differences in the alignment of the glycoproteins and the interior structure of the viruses were observed through their visualization: through the angles of their residues as plotted on a Ramachandran plot, and through their RMSD values. We also observed that there are RNA segments which have similar residues to the COVID-19 molecule (e.g. PB2 of Influenza has similar Ramachandran plot to the main Protease of COVID-19). However, the visualizations of RNA segments of Influenza and COVID-19 showed us that the two molecules have different content. The limitations of the analysis are due in large part to a scarce amount of information readily available regarding COVID-19 since research of the novel virus is still ongoing, and the complexity of finding Influenza A components of the same subtype without any inhibitors applied to them is big. In the future, as more data becomes readily accessible, we would seek to run a more comprehensive series of tests and visualizations that illustrate the natures of both viruses respectively, as well as visualizing the effects on how a certain inhibitor changes the molecular structure and composition of the glycoproteins of both viruses. We also hope to get a better datasets of COVID-19 that would allow us to perform more data analysis.
+
+\section{Resources}
+Github  repository  containing  all  of  the  datasets  used  in this research is available \href{https://github.com/YarkaS/Scientific-Visualization-of-COVID-19-and-Influenza}{here}. A YouTube playlist containing visualization demos of the secondary structure of all components used in the research is available \href{https://www.youtube.com/playlist?list=PLy6A1AABOE1kK2v1RD5oP3muDWzIhSUiL}{here}.
+
+
+
+\bibliographystyle{plain}
+\bibliography{references}
+
+\end{document}
